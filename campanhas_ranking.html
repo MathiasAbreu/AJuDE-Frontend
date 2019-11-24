@@ -1,55 +1,57 @@
 <!DOCTYPE html>
+<html>
+
 <head>
-
-  <meta charset="UTF-8" />
-  <title>AJuDe: welcome!</title>
-  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+    <meta charset=utf8>
+    <title>AJuDe: Ranking</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
         integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="./css/main.css"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+      <link rel="stylesheet" type="text/css" href="./css/main.css"/>
+      <link rel="stylesheet" type="text/css" href="./css/campanhasRanking.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-
 <body>
-  <header class="main_header">
+
+    <header class="main-header">
         <div class="container">
 
-            <nav class="main_nav">
-                <ul class="main_nav_list">
+            <nav class="main-nav">
+                <ul class="main-nav-list">
                     <li>
-                        <a href="campanhas_ranking.html">
-                            <button class="header_bt" id="rankingBt">Ranking de campanhas</button>
-                        </a>
+                        <button class="header_bt" id="rankingBt">Ranking de campanhas</button>
                     </li>
                 </ul>
             </nav>
 
             <a href="/" class="logo">
-                <img class="home" src="img/logomain.png" width="90" height="90">
+                <img class="home" src="./img/logomain.png" width="90" height="90">
             </a>
 
-            <nav class="main_nav">
-                <ul class="main_nav_list" id="userEntries">
+            <nav class="main-nav">
+                <ul class="main-nav-list" id="userEntries">
                 </ul>
             </nav>
 
         </div>
     </header>
 
-    <main class="main-content">
-        <div class="content">
-            <h1>Bem vindo ao AJuDE!</h1>
-            <h2> Navegue pelas nossas campanhas...</h2>
+    <div id="rankBySelectorContainer">
+        ORDENAR POR
+        <ul class="rankBySelector">
+            <li>
+                <input type="image" class="rankBySelectorOptions" id="rankByLikeNumb" src="./img/like.png"
+                    title="Maior numero de curtidas">
+            </li>
 
-            <form class="pure-form" id="campanhaForm" onsubmit="return false">
-                <input type="text" id="campanhaSearchBar" autocomplete="off" class="pure-input-rounded"
-                    placeholder="Pesquisar campanhas pelo nome">
-            </form>
-        </div>
-    </main>
+            <li>
+                <input type="image" class="rankBySelectorOptions" id="rankByCommentNumb" src="./img/comment.png"
+                    title="Maior numero de comentarios">
+            </li>
+        </ul>
+    </div>
 
-    <main class="campanhas_container"></main>
+    <main class="ranking-container"></main>
 
     <div id="signInMod">
         <div class="modContent">
@@ -57,7 +59,7 @@
                 <h1>Login</h1>
 
                 <fieldset class="pure-group">
-                    <input type="email" id="emailInpSignin" name="email" placeholder="E-mail">
+                    <input type="email" id="emailInpSignin" name="email" placeholder="Email">
                     <input type="password" id="passwdInpSignin" name="password" placeholder="Senha">
                 </fieldset>
 
@@ -86,17 +88,6 @@
     </div>
 
 
-    <div id="campanhaMod">
-        <div class="modContentCamp">
-            <div id="dadosCamp">
-                <h2 id="nomeCamp"></h2>
-                <div id="likeInfo"></div>
-            </div>
-            <div id="perfilComentarioDiv"></div>
-            <div id="comentariosContainer"></div>
-        </div>
-    </div>
-
     <footer class="footer">
         <div>
             <h4>Copyright © 2019 AJuDE, developed by Klaywert D. and Mathias A. at Federal University of Campina Grande. All rights reserved.</h4>
@@ -105,5 +96,6 @@
 
     <script src="js/script.js"></script>
 </body>
-</body>
+
+
 </html>
