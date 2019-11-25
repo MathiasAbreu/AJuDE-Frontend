@@ -3,7 +3,7 @@ async function verificaTokenExpirado(responseMessage) {
   const responseTexto = await responseMessage.text()
   const responseJson = await JSON.parse(responseTexto)
 
-  if (responseJson["message"].startsWith("JWT expirada")) {
+  if (responseJson["message"].startsWith("Token expirado")) {
     localStorage.removeItem("userToken")
     localStorage.removeItem("userEmail")
     alert("O seu token atual foi expirado, faça o login novamente para prosseguir")
