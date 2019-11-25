@@ -72,7 +72,7 @@ li  {
     background-color: #db7700;
 }
 
-#rankByLikeNumb, #rankByCommentNumb {
+#rankByDataNumb, #rankByLikeNumb, #rankByMetaNumb {
     margin: 10px 10px;
     padding: 2em;
     width:   8em;

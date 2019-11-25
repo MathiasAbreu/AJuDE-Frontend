@@ -56,12 +56,12 @@ li, a, button, h1, p {
 }
 
 .main_header .container {
-    display: flex;
+  display: flex;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: space-between;
     flex-wrap: wrap;
 
-    height: 60px;
+    height: 50px;
 }
 
 .main_nav ul {
@@ -73,24 +73,24 @@ li, a, button, h1, p {
 
 .main_nav a {
 	display: inline-block;
-    padding: .5em 1.5em;
-    text-decoration: none;
-    color: black;
-    font-family: Georgia, serif, Tahoma, sans-serif;
+  padding: .1em 0.1em;
+  text-decoration: none;
+  color: black;
+  font-family: Georgia, serif, Tahoma, sans-serif;
 }
 
 .main_content {
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     min-height: 30%;
 }
 
-.main_content .content {
-    display: flex;
-    flex-direction: column;
+.main_content, .content {
+    display: block;
     align-items: center;
-    height: min-content;
+    height: auto;
+    text-align: center;
 
 }
 

@@ -13,23 +13,23 @@
 
 <body>
 
-    <header class="main-header">
+    <header class="main_header">
         <div class="container">
 
-            <nav class="main-nav">
-                <ul class="main-nav-list">
+            <nav class="main_nav">
+                <ul class="main_nav_list">
                     <li>
                         <button class="header_bt" id="rankingBt">Ranking de campanhas</button>
                     </li>
                 </ul>
             </nav>
 
-            <a href="/" class="logo">
+            <a href="./index.html" class="logo">
                 <img class="home" src="./img/logomain.png" width="90" height="90">
             </a>
 
-            <nav class="main-nav">
-                <ul class="main-nav-list" id="userEntries">
+            <nav class="main_nav">
+                <ul class="main_nav_list" id="userEntries">
                 </ul>
             </nav>
 
@@ -37,7 +37,7 @@
     </header>
 
     <div id="rankBySelectorContainer">
-        ORDENAR POR
+        ORDENAR CAMPANHAS POR:
         <ul class="rankBySelector">
             <li>
                 <input type="image" class="rankBySelectorOptions" id="rankByLikeNumb" src="./img/like.png"
@@ -45,13 +45,19 @@
             </li>
 
             <li>
-                <input type="image" class="rankBySelectorOptions" id="rankByCommentNumb" src="./img/comment.png"
-                    title="Maior numero de comentarios">
+                <input type="image" class="rankBySelectorOptions" id="rankByDataNumb" src="./img/calendario.png"
+                    title="Proximidade da data de termino">
             </li>
+
+            <li>
+                <input type="image" class="rankBySelectorOptions" id="rankByMetaNumb" src="./img/linha-de-chegada.png"
+                    title ="Mais proximo de atingir a meta de arrecadaçao">
+            </li>
+
         </ul>
     </div>
 
-    <main class="ranking-container"></main>
+    <main class="ranking_container"></main>
 
     <div id="signInMod">
         <div class="modContent">
@@ -90,7 +96,7 @@
 
     <footer class="footer">
         <div>
-            <h4>Copyright © 2019 AJuDE, developed by Klaywert D. and Mathias A. at Federal University of Campina Grande. All rights reserved.</h4>
+            <h6>Copyright © 2019 AJuDE, developed by Klaywert D. and Mathias A. at Federal University of Campina Grande. All rights reserved.</h6>
         </div>
     </footer>
 
