@@ -1,4 +1,4 @@
-const entriesModel = {
+const usuarioDadosLogin = {
     "$nome" : null,
     "$ultimoNome"  : null,
     "$email"     : null,
@@ -10,7 +10,7 @@ const entriesModel = {
         return regex.test(email);
     },
 
-    validPasswd: function validaSenha(passwd) {
+    validPasswd: function validaSenha(senha) {
         return (passwd.length > 7)
     },
 
@@ -38,7 +38,7 @@ const entriesModel = {
     },
 
     signIn: function signIn(form) {
-           this.$email = form["email"].value;
+        this.$email = form["email"].value;
         this.$senha = form["senha"].value;
 
         if (!this.validaEmail(this.$email)) {
@@ -65,9 +65,9 @@ const entriesModel = {
     signInToJson: function signInToJson() {
         return  {
             email:     this.$email,
-            senha:  this.$senha
+            senha:     this.$senha
         }
     },
 };
 
-export default entriesModel;
+export default usuarioDadosLogin;
