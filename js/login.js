@@ -26,7 +26,7 @@ async function signIn() {
     usuarioDadosLogin.signIn(document.forms["signIn"])
     const jsonBody = JSON.stringify(usuarioDadosLogin.signInToJson());
 
-    const fetcher = await fetch("https://ucdb-plataform1.herokuapp.com/api/v1/auth/login", {
+    const fetcher = await fetch("https://ajude-back.herokuapp.com/ajude/usuarios/login", {
         method: "POST",
         headers: { 'Content-Type': 'application/json; charset=utf-8' },
         body: jsonBody
