@@ -12,7 +12,7 @@ async function verificaTokenExpirado(responseMessage) {
 
 const modSignIn = document.getElementById("signInMod");
 
-const discModal = document.getElementById("campanhaMod");
+const campanhaModal = document.getElementById("campanhaMod");
 
 
 function killAllChildren(elemento) {

@@ -6,7 +6,7 @@ const $signInBt = document.getElementById("signInBt");
 const modSignIn = document.getElementById("signInMod");
 const modSignUp = document.getElementById("signUpMod");
 
-const campanhaModal = document.getElementById("disciplinaMod");
+const campanhaModal = document.getElementById("campanhaMod");
 const btNav = document.getElementById("userEntries");
 
 $signInBt.onclick = () => signIn();
@@ -53,7 +53,7 @@ function signUp() {
     usuarioDadosLogin.signUp(document.forms["signUp"])
     const jsonBody = JSON.stringify(usuarioDadosLogin.signUpToJson());
 
-    fetch("https://ucdb-plataform1.herokuapp.com/api/v1/users/", {
+    fetch("https://ajude-back.herokuapp.com/ajude/usuarios/adiciona", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json; charset=utf-8' },
         body: jsonBody

@@ -12,11 +12,11 @@
 
 
 <body>
-  <header class="main_header">
+  <header class="main-header">
         <div class="container">
 
-            <nav class="main_nav">
-                <ul class="main_nav_list">
+            <nav class="main-nav">
+                <ul class="main-nav-list">
                     <li>
                         <a href="campanhas_ranking.html">
                             <button class="header_bt" id="rankingBt">Ranking de campanhas</button>
@@ -29,15 +29,15 @@
                 <img class="home" src="img/logomain.png" width="90" height="90">
             </a>
 
-            <nav class="main_nav">
-                <ul class="main_nav_list" id="userEntries">
+            <nav class="main-nav">
+                <ul class="main-nav-list" id="userEntries">
                 </ul>
             </nav>
 
         </div>
     </header>
 
-    <main class="main_content">
+    <main class="main-content">
         <div class="content">
             <br>
             <h1>Bem vindo ao AJuDE!</h1>
@@ -51,7 +51,7 @@
         </div>
     </main>
 
-    <main class="campanhas_container"></main>
+    <main class="campanhas-container"></main>
 
     <div id="signInMod">
         <div class="modContent">
@@ -78,7 +78,7 @@
                     <input type="text" name="lastName" id="lastNameInp" placeholder="Ultimo Nome">
                     <br>
                     <input type="email" id="emailInpSignup" name="email" placeholder="Email">
-                    <input type="number" id="emailInpSignup" name="cartao" placeholder="Numero do cartao de credito">
+                    <input type="number" id="cartaoInpSignup" name="cartao" placeholder="Numero do cartao de credito">
                     <input type="password" id="passwdInpSignUp" name="password" placeholder="Senha">
                 </fieldset>
 
@@ -86,7 +86,6 @@
             </form>
         </div>
     </div>
-
 
     <div id="campanhaMod">
         <div class="modContentCamp">
@@ -105,8 +104,9 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
-    <script type="module" src="js/login.js"></script>
+    <script src="scripts/script.js"></script>
+    <script type="module" src="scripts/login.js"></script>
+    <script type="module" src="scripts/usuario.js"></script>
 
 </body>
 </html>

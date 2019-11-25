@@ -34,7 +34,7 @@ li, a, button, h1, p {
     border: none;
     transition: all 0.3s ease 0s;
 
-    background-color: #fffaf4;
+    background-color: #ffff00;
     border-radius: 10px;
 
     /* background-color: #ffebcd; */
@@ -50,28 +50,28 @@ li, a, button, h1, p {
     transition: all 0.3s ease 0s;
 }
 
-.main_header {
+.main-header {
     background: #FFF;
     box-shadow: 0 2px 6px rgba(0,0,0,.1);
 }
 
-.main_header .container {
+.main-header .container {
   display: flex;
 	align-items: center;
 	justify-content: space-between;
     flex-wrap: wrap;
 
-    height: 50px;
+    height: 60px;
 }
 
-.main_nav ul {
+.main-nav ul {
 	text-align: center;
 }
-.main_nav li {
+.main-nav li {
 	display: inline;
 }
 
-.main_nav a {
+.main-nav a {
 	display: inline-block;
   padding: .1em 0.1em;
   text-decoration: none;
@@ -79,14 +79,14 @@ li, a, button, h1, p {
   font-family: Georgia, serif, Tahoma, sans-serif;
 }
 
-.main_content {
+.main-content {
     display: block;
     justify-content: center;
     align-items: center;
     min-height: 30%;
 }
 
-.main_content, .content {
+.main-content, .content {
     display: block;
     align-items: center;
     height: auto;
@@ -154,7 +154,7 @@ li, a, button, h1, p {
     height: 50%;
 }
 
-.disciplinas_container {
+.disciplinas-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
