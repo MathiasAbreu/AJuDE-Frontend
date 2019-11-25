@@ -84,12 +84,12 @@ function aparecerLoginRegistrar() {
     loginBt.innerHTML = '<button class="header_bt" id="loginBt">Login</button>'
     loginBt.onclick = () => modSignIn.style.display = "flex";
 
-    const cadastroBt = document.createElement("li")
+    const registrarBt = document.createElement("li")
     registrarBt.innerHTML = '<button class="header_bt" id="registerBt">Cadastro</button>'
     registrarBt.onclick = () => modSignUp.style.display = "flex";
 
     btNav.append(loginBt)
-    btNav.append(cadastroBt)
+    btNav.append(registrarBt)
 }
 
 function aparecerDisconnect() {

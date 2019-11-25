@@ -11,27 +11,27 @@ const usuarioDadosLogin = {
     },
 
     validPasswd: function validaSenha(senha) {
-        return (passwd.length > 7)
+        return (senha.length > 7)
     },
 
     signUp: function signUp(form) {
-        this.$nome = form["nome"].value;
-        this.$ultimoNome = form["ultimoNome"].value;
+        this.$nome = form["firstName"].value;
+        this.$ultimoNome = form["lastName"].value;
         this.$email = form["email"].value;
-        this.$senha = form["senha"].value;
-        this.$numeroCartao = form["numeroCartao"].value;
+        this.$senha = form["password"].value;
+        this.$numeroCartao = form["cartao"].value;
 
 
         if (!this.$nome || !this.$ultimoNome) {
             alert("Nome invalido!\nTente novamente.");
             throw new Error("Nome invalido!\nTente novamente.");
         }
-        else if (!this.validaEmail(this.$email)) {
+        else if (!this.validEmail(this.$email)) {
             alert("Email invalido!\nTente novamente.");
             throw new Error("Email invalido!\nTente novamente.");
         }
 
-        else if (!this.validaSenha(this.$senha)) {
+        else if (!this.validPasswd(this.$senha)) {
             alert("Senha invalida!\nTamanho minimo de 8 caracteres.\nTente novamente.");
             throw new Error("Senha invalida!\nTamanho minimo de 8 caracteres.\nTente novamente.");
         }
@@ -39,14 +39,14 @@ const usuarioDadosLogin = {
 
     signIn: function signIn(form) {
         this.$email = form["email"].value;
-        this.$senha = form["senha"].value;
+        this.$senha = form["password"].value;
 
-        if (!this.validaEmail(this.$email)) {
+        if (!this.validEmail(this.$email)) {
             alert("Email invalido!\nTente novamente.");
             throw new Error("Email invalido!\nTente novamente.");
         }
 
-        else if (!this.validaSenha(this.$senha)) {
+        else if (!this.validPasswd(this.$senha)) {
             alert("Senha invalida!\nTente novamente.");
             throw new Error("Senha invalida!\nTente novamente.");
         }
