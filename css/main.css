@@ -140,8 +140,8 @@ li, a, button, h1, p {
     border-radius: 10px;
 
     border: 1px solid #888;
-    max-width: 450px;
-    max-height: 550px;
+    max-width: 500px;
+    max-height: 600px;
 
 }
 
@@ -163,7 +163,7 @@ li, a, button, h1, p {
 
 }
 
-.discBt {
+.campanhaBt {
     font-family: Georgia, serif;
     font-weight: 500;
     text-decoration: none;
@@ -201,7 +201,7 @@ li, a, button, h1, p {
 
 /* Disciplina modal */
 
-#disciplinaMod {
+#campanhaMod {
     text-align: center;
     display: none;
     position: fixed;
@@ -215,7 +215,7 @@ li, a, button, h1, p {
     background-color: rgba(0,0,0,0.4);
 }
 
-.modContentDisc {
+.modContentCamp {
     display: flex;
 
     flex-direction: column;
@@ -231,7 +231,7 @@ li, a, button, h1, p {
 
 }
 
-#dadosDisc {
+#dadosCamp {
     display: flex;
     align-items: center;
     justify-content: space-around;
