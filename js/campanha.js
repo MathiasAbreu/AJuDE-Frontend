@@ -1,16 +1,16 @@
-//Tempo que o usuario tem de digitacao na barra de pesquisa de disciplinas ate que o sistema faca o fetch para buscar disciplinas
+//Tempo que o usuario tem de digitacao na barra de pesquisa de campanhas ate que o sistema faca o fetch para buscar campanhas
 var bufferTime = null;
 
-//Barra de pesquisa de perfis de disciplinas
+//Barra de pesquisa de perfis de campanhas
 const $campanhaSearchBar = document.getElementById("campanhaSearchBar");
 
-//Muda a cor do botao de acordo com a escolha do usuario de curtir ou nao o perfil da disciplina
+//Muda a cor do botao de acordo com a escolha do usuario de curtir ou nao o perfil da campanha
 function mudarCorBotaoLike(flag) {
     if (flag) document.getElementById("likeBt").style = "filter: invert(32%) sepia(95%) saturate(1073%) hue-rotate(103deg) brightness(95%) contrast(105%);"
     else document.getElementById("likeBt").style = ""
 }
 
-//Recebe (parte) do nome da disciplina a ser buscada
+//Recebe (parte) do nome da campanha a ser buscada
 $campanhaSearchBar.onkeyup = async function () {
     if (!$campanhaSearchBar.value) {
         killAllChildren("#campanhaSearchBar")
@@ -22,7 +22,7 @@ $campanhaSearchBar.onkeyup = async function () {
     //it will run the button creator function
 }
 
-//Controla a criacao de botoes das disciplinas dinamicamente
+//Controla a criacao de botoes das campanhas dinamicamente
 var CampanhaBtControler = async function () {
     if (!$campanhaSearchBar.value) return;
 
@@ -35,7 +35,7 @@ var CampanhaBtControler = async function () {
     });
 }
 
-//Cria botoes baseados no nome e ids das disciplinas, e adiciona estes ao HTML da pagina
+//Cria botoes baseados no nome e ids das campanhas, e adiciona estes ao HTML da pagina
 function CampanhaButtonCreator(campanhaId, campanhaNome) {
     let button = document.createElement("button");
     button.id = campanhaId;
@@ -49,7 +49,7 @@ function CampanhaButtonCreator(campanhaId, campanhaNome) {
     document.querySelector(".campanhas_container").appendChild(button);
 }
 
-//Recupera todas as disciplinas que tem o nome/parte dele igual ao pesquisado pelo usuario
+//Recupera todas as campanhas que tem o nome/parte dele igual ao pesquisado pelo usuario
 async function campanhaFetcher() {
     if (!$campanhaSearchBar.value) return;
 
@@ -61,7 +61,7 @@ async function campanhaFetcher() {
     return campanhaJson;
 }
 
-//Controla o modal dos perfis das disciplinas, limpando e adicionando a este as informacoes da disciplina escolhida pelo usuario
+//Controla o modal dos perfis das campanhas, limpando e adicionando a este as informacoes da campanha escolhida pelo usuario
 async function perfilModController(campanhaId) {
     killAllChildren("#comentariosContainer");
     killAllChildren("#perfilComentarioDiv");
@@ -94,7 +94,7 @@ async function perfilModController(campanhaId) {
     campanhaModal.style.display = "block";
 }
 
-//Realiza a ligacao entre a aplicacao front e back, recuperando as informacoes de um perfil de uma disciplina a partir de seu id
+//Realiza a ligacao entre a aplicacao front e back, recuperando as informacoes de um perfil de uma campanha a partir de seu id
 async function perfilFetcher(id) {
     const userToken = await JSON.parse(localStorage.getItem("userToken"))["token"]
     const requestUrl = "ttps://ajude-back.herokuapp.com/ajude/campanhas/" + id + "/busca";
@@ -116,7 +116,7 @@ async function perfilFetcher(id) {
     return perfilData;
 }
 
-//Controla as informacoes sobre like de uma disciplina e as adicionam na pagina dinamicamente
+//Controla as informacoes sobre like de uma campanha e as adicionam na pagina dinamicamente
 function perfilModalLikeControler(idCampanha, nomeCampanha, numLikes) {
     document.querySelector("#nomeCampanha").innerText = nomeCampanha;
     const $likeInfo = document.querySelector("#likeInfo")
@@ -141,7 +141,7 @@ function perfilModalLikeControler(idCampanha, nomeCampanha, numLikes) {
     $likeInfo.append(likeBt, likeCounter)
 }
 
-//Realiza a ligacao entre a aplicacao front e back, possibilitando ao usuario curtir um determinado perfil de uma disciplina a partir de seu id
+//Realiza a ligacao entre a aplicacao front e back, possibilitando ao usuario curtir um determinado perfil de uma campanha a partir de seu id
 async function curtirPerfil(id) {
     const requestUrl = "https://ajude-back.herokuapp.com/ajude/campanhas/" + id + "/addLike";
     const userToken = await JSON.parse(localStorage.getItem("userToken"))["token"]
@@ -193,7 +193,7 @@ function estruturaDataGeralComentario(autor, data, comentario) {
     return comentarioData;
 }
 
-//Constroi a estrutura dos comentarios de comentarios dos perfis das disciplinas e adiciona esta ao HTML da página
+//Constroi a estrutura dos comentarios de comentarios dos perfis das campanhas e adiciona esta ao HTML da página
 function comentarioComentarioCreator(campanhaId, comPaiId, comentarioId, autor, data, email, comentario) {
     const comentarioDoComentario = document.createElement("div");
     comentarioDoComentario.className = "comentarioComentario"
@@ -210,7 +210,7 @@ function comentarioComentarioCreator(campanhaId, comPaiId, comentarioId, autor, 
     document.getElementById("comentarioDe" + comPaiId).appendChild(comentarioDoComentario)
 }
 
-//Constroi a estrutura dos comentarios dos perfis das disciplinas e adiciona esta ao HTML da página
+//Constroi a estrutura dos comentarios dos perfis das campanhas e adiciona esta ao HTML da página
 function comentarioPrincipalCreator(campanhaId, comentarioId, autor, data, email, comentario) {
     const perfilComentario = document.createElement("div");
     perfilComentario.className = "perfilComentario"
@@ -258,7 +258,7 @@ function usuarioDonoDoComentario(comentarioId, campanhaId, email) {
     return "";
 }
 
-//Cria uma area de insercao de comentarios no perfil da disciplina escolhida pelo usuario
+//Cria uma area de insercao de comentarios no perfil da campanha escolhida pelo usuario
 function comentarioPerfilInputCreator(id) {
     const input = document.createElement("input")
 
@@ -311,7 +311,7 @@ function comentarioToJson(comentario) {
     return comentarioJson;
 }
 
-//Recebe um comentario de um determinado perfil de disciplina e manda este para o backend.
+//Recebe um comentario de um determinado perfil de campanha e manda este para o backend.
 async function comentarPerfil(id, comentario) {
     const requestUrl = "https://ajude-back.herokuapp.com/ajude/campanhas/{identificadorURL}/addComentario" + id;
     const userToken = await JSON.parse(localStorage.getItem("userToken"))["token"]
@@ -337,7 +337,7 @@ async function comentarPerfil(id, comentario) {
     return false;
 };
 
-//Recebe um comentario de um determinado perfil de disciplina e manda este para o backend.
+//Recebe um comentario de um determinado perfil de campanha e manda este para o backend.
 async function deletarComentarioFetcher(idPerfil, idComentario) {
     const requestUrl = "https://ajude-back.herokuapp.com/ajude/campanhas/{identificadorURL}/delComentario + idPerfil + "&idComentario=" + idComentario;
     const userToken = await JSON.parse(localStorage.getItem("userToken"))["token"]
