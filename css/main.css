@@ -154,7 +154,7 @@ li, a, button, h1, p {
     height: 50%;
 }
 
-.disciplinas-container {
+.campanhas_container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -199,7 +199,7 @@ li, a, button, h1, p {
 }
 
 
-/* Disciplina modal */
+/* Campanha modal */
 
 #campanhaMod {
     text-align: center;

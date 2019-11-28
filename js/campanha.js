@@ -236,7 +236,7 @@ function comentarioPrincipalCreator(campanhaId, comentarioId, autor, data, email
     subComentarioContainer.className = "subComentarioContainer"
     subComentarioContainer.id = "comentarioDe" + comentarioId;
 
-    comentarioDiv.append(comentarioData, subComentarioInp, usuarioDonoDoComentario(comentarioId, disciplinaId, email), subComentarioContainer)
+    comentarioDiv.append(comentarioData, subComentarioInp, usuarioDonoDoComentario(comentarioId, campanhaId, email), subComentarioContainer)
     perfilComentario.appendChild(comentarioDiv)
 
     document.querySelector("#comentariosContainer").appendChild(perfilComentario);
@@ -277,8 +277,8 @@ function comentarioPerfilInputCreator(id) {
 }
 
 //Realiza a ligacao entre a aplicacao front e back, para que seja possivel adicionar um comentario de um comentario
-async function adicionarSubComentario(disciplinaId, comentarioId, comentario) {
-    const requestUrl = "https://ajude-back.herokuapp.com/ajude/" + disciplinaId + "&idComentario=" + comentarioId;
+async function adicionarSubComentario(campanhaId, comentarioId, comentario) {
+    const requestUrl = "https://ajude-back.herokuapp.com/ajude/" + campanhaId + "&idComentario=" + comentarioId;
     const userToken = await JSON.parse(localStorage.getItem("userToken"))["token"]
     const jsonBody = JSON.stringify(comentarioToJson(comentario))
 

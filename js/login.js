@@ -6,7 +6,7 @@ const $signInBt = document.getElementById("signInBt");
 const modSignIn = document.getElementById("signInMod");
 const modSignUp = document.getElementById("signUpMod");
 
-const campanhaModal = document.getElementById("disciplinaMod");
+const campanhaModal = document.getElementById("campanhaMod");
 const btNav = document.getElementById("userEntries");
 
 $signInBt.onclick = () => signIn();
@@ -46,6 +46,7 @@ async function signIn() {
     localStorage.setItem("userEmail", usuarioDadosLogin.signInToJson()["email"])
 
     aparecerDisconnect()
+    aparecerCadastraCampanha()
 }
 
 
@@ -74,7 +75,7 @@ function signUp() {
 }
 
 
-if (localStorage.getItem("userToken")) aparecerDisconnect()
+if (localStorage.getItem("userToken")) { aparecerDisconnect(); aparecerCadastraCampanha(); }
 else {
     aparecerLoginRegistrar()
 }
@@ -109,6 +110,17 @@ function aparecerDisconnect() {
     killAllChildren("#userEntries")
 
     btNav.appendChild(disconnectBt)
+}
+
+function aparecerCadastraCampanha() {
+  const cadastroCampanhaBt = document.createElement("li");
+
+  cadastroCampanhaBt.className = "header_bt"
+  loginBt.innerHTML = '<button class="header_bt" id="loginBt">Login</button>'
+
+  cadastroCampanhaBt.onclick = function () {
+
+  }
 }
 
 

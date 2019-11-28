@@ -12,14 +12,14 @@ async function verificaTokenExpirado(responseMessage) {
 
 const modSignIn = document.getElementById("signInMod");
 
-const discModal = document.getElementById("campanhaMod");
+const campanhaModal = document.getElementById("campanhaMod");
 
 
 function killAllChildren(elemento) {
-  let $discContainer = document.querySelector(elemento);
-  if (!$discContainer) return;
-  while ($discContainer.firstChild) {
-    $discContainer.removeChild($discContainer.firstChild);
+  let $campanhaContainer = document.querySelector(elemento);
+  if (!$campanhaContainer) return;
+  while ($campanhaContainer.firstChild) {
+    $campanhaContainer.removeChild($campanhaContainer.firstChild);
   }
 }
 
