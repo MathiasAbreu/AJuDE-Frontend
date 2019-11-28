@@ -53,10 +53,10 @@ function submitCampanha() {
 
     var data = {
         nome: nome,
-        descricao: descricao.
+        descricao: descricao,
         meta: meta,
         dataDeadline: deadLine,
-        identificadorURL: nomeCurto,
+        identificadorURL: nomeCurto
     }
 
 
