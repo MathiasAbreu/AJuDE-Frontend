@@ -4,6 +4,10 @@ Repositório de codigo para o projeto de PSOFT 2019.2 (Frontend)
 ## Padrao Utilizado:
   O padrão utilizado foi o MVVM.
 
+## Adicionais:
+  Biblioteca fontAwesome, somente para importação de alguns icones do sistema e biblioteca para estilos, sem uso de framework.
+  
+
 ## O projeto frontend é composto por:
 
 1. HTML: views do sistema que mostram na tela o sistema e todos os seus componentes.
