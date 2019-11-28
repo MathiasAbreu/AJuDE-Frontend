@@ -20,7 +20,6 @@ function submitRegister() {
     fetch('https://ajude-back.herokuapp.com/ajude/usuarios/adiciona', {
             method: 'POST',
             headers: {
-                'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json; charset=utf-8'
             },
             body: JSON.stringify(data)

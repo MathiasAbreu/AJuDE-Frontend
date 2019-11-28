@@ -13,7 +13,6 @@ function submitLogin() {
     fetch('https://ajude-back.herokuapp.com/ajude/usuarios/login', {
             method: 'POST',
             headers: {
-                'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json; charset=utf-8'
             },
             body: JSON.stringify(data)
@@ -64,7 +63,6 @@ function submitCampanha() {
     fetch('https://ajude-back.herokuapp.com/ajude/campanhas/adiciona', {
             method: 'POST',
             headers: {
-                'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json; charset=utf-8'
             },
             body: JSON.stringify(data)
