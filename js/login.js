@@ -1,5 +1,4 @@
 
-var tokenUser;
 function submitLogin() {
     var email = document.getElementById("login-email").value
     var senha = document.getElementById("login-psw").value
@@ -26,8 +25,6 @@ function submitLogin() {
         })
         .then(function (data) {
             alert("Usuário logado com sucesso")
-
-            tokenUser = data.token;
 
             // Store
             localStorage.setItem("token", data.token)
@@ -64,7 +61,7 @@ function submitCampanha() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=utf-8',
-                'Authorization': 'Bearer ' + tokenUser
+                'Authorization': "Bearer " + localStorage.getItem("token")
             },
             body: JSON.stringify(data)
         })
