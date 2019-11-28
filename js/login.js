@@ -46,7 +46,6 @@ async function signIn() {
     localStorage.setItem("userEmail", usuarioDadosLogin.signInToJson()["email"])
 
     aparecerDisconnect()
-    aparecerCadastraCampanha()
 }
 
 
@@ -75,7 +74,7 @@ function signUp() {
 }
 
 
-if (localStorage.getItem("userToken")) { aparecerDisconnect(); aparecerCadastraCampanha(); }
+if (localStorage.getItem("userToken")) aparecerDisconnect();
 else {
     aparecerLoginRegistrar()
 }
@@ -110,14 +109,6 @@ function aparecerDisconnect() {
     killAllChildren("#userEntries")
 
     btNav.appendChild(disconnectBt)
-}
-
-function aparecerCadastraCampanha() {
-  const cadastroCampanhaBt = document.createElement("li");
-  cadastroCampanhaBt.innerHTML = '<button class="header_bt" id="cadastroCampanhaBt">Cadastrar campanha</button>'
-  const modCadastroCampanha = document.getElementById("cadastroCampanhaMod");
-  cadastroCampanhaBt.onclick = () => modCadastroCampanha.style.display = "flex";
-
 }
 
 
