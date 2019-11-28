@@ -7,6 +7,9 @@ Repositório de codigo para o projeto de PSOFT 2019.2 (Frontend)
 ## Adicionais:
   Biblioteca fontAwesome, somente para importação de alguns icones do sistema e biblioteca para estilos, sem uso de framework.
   
+  
+  O projeto atual possui 2 usuarios cadastrados previamente.
+  
 
 ## O projeto frontend é composto por:
 
