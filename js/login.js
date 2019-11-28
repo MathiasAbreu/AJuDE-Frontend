@@ -48,7 +48,6 @@ function submitCampanha() {
     var descricao = document.getElementById("register-Cdescricao").value
     var meta = document.getElementById("register-Cmeta").value
     var deadLine= document.getElementById("register-Cdeadline").value
-    var nomeCurto = document.getElementById("register-Cnomecurto").value
 
 
     var data = {
@@ -56,7 +55,6 @@ function submitCampanha() {
         descricao: descricao,
         meta: meta,
         dataDeadline: deadLine,
-        identificadorURL: nomeCurto
     }
 
 
