@@ -1,123 +1,86 @@
-import usuarioDadosLogin from "./usuario.js";
 
-const $signUpBt = document.getElementById("signUpBt");
-const $signInBt = document.getElementById("signInBt");
-
-const modSignIn = document.getElementById("signInMod");
-const modSignUp = document.getElementById("signUpMod");
-
-const campanhaModal = document.getElementById("campanhaMod");
-const btNav = document.getElementById("userEntries");
-
-$signInBt.onclick = () => signIn();
-$signUpBt.onclick = () => signUp();
-
-window.onclick = (event) => {
-    if (event.target == modSignIn || event.target == modSignUp) {
-        modSignIn.style.display = "none"
-        modSignUp.style.display = "none"
-    } else if (event.target == campanhaModal) {
-        campanhaModal.style.display = "none";
-    }
-}
+function submitLogin() {
+    var email = document.getElementById("login-email").value
+    var senha = document.getElementById("login-psw").value
 
 
-async function signIn() {
-    usuarioDadosLogin.signIn(document.forms["signIn"])
-    const jsonBody = JSON.stringify(usuarioDadosLogin.signInToJson());
-
-    const fetcher = await fetch("https://ajude-back.herokuapp.com/ajude/usuarios/login", {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json; charset=utf-8' },
-        body: jsonBody
-    })
-
-    const responseTxt = await fetcher.text()
-
-    if (!fetcher.ok) {
-        const responseJson = await JSON.parse(responseTxt)
-        alert(responseJson["message"] + "\nPor favor, tente novamente.")
-        throw new Error("Falha no login, tente novamente!");
+    var data = {
+        email: email,
+        senha: senha
     }
 
-    alert("Login feito com sucesso!");
-    modSignIn.style.display = "none";
-    localStorage.setItem("userToken", responseTxt)
-    localStorage.setItem("userEmail", usuarioDadosLogin.signInToJson()["email"])
 
-    aparecerDisconnect()
-}
-
-
-function signUp() {
-    usuarioDadosLogin.signUp(document.forms["signUp"])
-    const jsonBody = JSON.stringify(usuarioDadosLogin.signUpToJson());
-
-    fetch("https://ajude-back.herokuapp.com/ajude/usuarios/adiciona", {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json; charset=utf-8' },
-        body: jsonBody
-    })
-        .then(response => {
+    fetch('https://ajude-back.herokuapp.com/ajude/usuarios/login', {
+            method: 'POST',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(function (response) {
             if (!response.ok) {
-                console.log("ERROR: " + response.text());
-                throw new Error("Falha no cadastro!");
+                throw new Error("Email ou senha incorretos")
             }
-            return response.text();
+            return response.json()
+        })
+        .then(function (data) {
+            alert("Usuário logado com sucesso")
 
-        }).then(data => {
-            alert("Cadastro realizado com sucesso!")
-            modSignUp.style.display = "none";
+            // Store
+            localStorage.setItem("token", data.token)
+            localStorage.setItem("login", email)
+
+            window.location.href = "index.html"
+        })
+        .catch(function (error) {
+            alert(error.message);
         });
-
-    return true;
 }
 
-
-if (localStorage.getItem("userToken")) aparecerDisconnect();
-else {
-    aparecerLoginRegistrar()
+function logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    window.location.href = "index.html";
 }
 
-function aparecerLoginRegistrar() {
-    const loginBt = document.createElement("li")
-    loginBt.innerHTML = '<button class="header_bt" id="loginBt">Login</button>'
-    loginBt.onclick = () => modSignIn.style.display = "flex";
+function submitCampanha() {
+    var nome = document.getElementById("register-Cnome").value
+    var descricao = document.getElementById("register-Cdescricao").value
+    var meta = document.getElementById("register-Cmeta").value
+    var deadLine= document.getElementById("register-Cdeadline").value
+    var nomeCurto = document.getElementById("register-Cnomecurto").value
 
-    const cadastroBt = document.createElement("li")
-    registrarBt.innerHTML = '<button class="header_bt" id="registerBt">Cadastro</button>'
-    registrarBt.onclick = () => modSignUp.style.display = "flex";
 
-    btNav.append(loginBt)
-    btNav.append(cadastroBt)
-}
-
-function aparecerDisconnect() {
-    const disconnectBt = document.createElement("button");
-
-    disconnectBt.className = "header_bt"
-    disconnectBt.id = "disconnectarBt"
-    disconnectBt.innerText = "Sair"
-
-    disconnectBt.onclick = function () {
-        killAllChildren("#userEntries")
-        aparecerLoginRegistrar()
-        localStorage.removeItem("userToken")
-        localStorage.removeItem("userEmail")
+    var data = {
+        nome: nome,
+        descricao: descricao.
+        meta: meta,
+        dataDeadline: deadLine,
+        identificadorURL: nomeCurto,
     }
 
-    killAllChildren("#userEntries")
 
-    btNav.appendChild(disconnectBt)
+    fetch('https://ajude-back.herokuapp.com/ajude/campanhas/adiciona', {
+            method: 'POST',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("Erro, tente novamente")
+            }
+            return response.json()
+        })
+        .then(function (data) {
+            alert("Campanha criada com sucesso com sucesso")
+
+            window.location.href = "index.html"
+        })
+        .catch(function (error) {
+            alert(error.message);
+        });
 }
-
-
-function killAllChildren(elemento) {
-    let $campanhaContainer = document.querySelector(elemento);
-    if (!$campanhaContainer) return;
-    while ($campanhaContainer.firstChild) {
-        $campanhaContainer.removeChild($campanhaContainer.firstChild);
-    }
-}
-
-export default usuarioDadosLogin;

@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, cursive;
+}
+html {
+    font-family: Georgia, cursive;
+}
+.tower1{
+    margin-top: 200px;
+    margin-left: 50px;
+    height: 100px;
+    width: 50px;
+    background: #2C3035;
+    border-radius: 15px;
+}
+.tower2{
+    margin-top: 125px;
+    margin-left: 50px;
+    height: 175px;
+    width: 50px;
+    background: #2C3035;
+    border-radius: 15px;
+}
+.tower3{
+    margin-top: 50px;
+    margin-left: 50px;
+    height: 250px;
+    width: 50px;
+    background: #2C3035;
+    border-radius: 15px;
+}
+
+.letter{
+    letter-spacing: 2px;
+    margin-left: 50px;
+    color: #2C3035;
+    text-decoration: none;
+    font-size: 250px;
+    margin-top: 70px;
+}
+
+.logo{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    vertical-align: center;
+    margin-top: 125px;
+}
+
+body{
+    background: #EEF2F1;
+}
+
+@-webkit-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-moz-keyframes fadeIn {
+    0% { opacity: 0;}
+    100% { opacity: 1; }
+}
+@-o-keyframes fadeIn {
+0% { opacity: 0; }
+100% { opacity: 1; }
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.fadeIn {
+    -webkit-animation: fadeIn 3s ease-in-out;
+    -moz-animation: fadeIn 3s ease-in-out;
+    -o-animation: fadeIn 3s ease-in-out;
+    animation: fadeIn 3s ease-in-out;
+}

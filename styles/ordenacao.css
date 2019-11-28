@@ -1,0 +1,313 @@
+.ordenaMain{
+    width: auto;
+    align-content: center;
+    justify-content: center;
+    background-color: rgba(44,48,53, 0.8);
+    border-radius: 15px;
+    min-width: 700px;
+    max-width: 800px;
+}
+.ordemProfile{
+    width: auto;
+    font-size: 30px;
+    letter-spacing: 0px;
+    color: #EEF2F1;
+    text-shadow: 2px 2px 2px #2C3035;
+    margin: 15px;
+    align-content: center;
+    justify-content: center;
+}
+
+.card-ranking{
+    background: #EEF2F1;
+    margin: 10px 0px;
+    border-radius: 10px;
+    padding: 5px;
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-ranking-gold{
+    background: #FFD700;
+    margin: 10px 0px;
+    border-radius: 10px;
+    padding: 5px;
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-ranking-silver{
+    background: #C0C0C0;
+    margin: 10px 0px;
+    border-radius: 10px;
+    padding: 5px;
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-ranking-bronze{
+    background: #cd7f32;
+    margin: 10px 0px;
+    border-radius: 10px;
+    padding: 5px;
+    min-height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ranking-text{
+    margin: 15px;
+    letter-spacing: 2px;
+    font-size: 18px;
+    color: #2C3035;
+    text-shadow: none;
+    text-align: left;
+}
+
+.ordem-name{
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+    margin-top: 25px;
+}
+
+.card-like{
+    margin: 15px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.button-liked{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: #2C3035;
+    text-decoration: none;
+    font-size: 40px;
+    text-shadow: none;
+}
+
+.button-unlike{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: #757C84;
+    text-decoration: none;
+    font-size: 40px;
+    text-shadow: none;
+}
+
+.button-unlike:hover{
+    color: #2C3035;
+    transition: 0.4s;
+}
+
+.button-ext{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    color: #757C84;
+    text-decoration: none;
+    font-size: 40px;
+    margin: 0px 15px;
+    text-shadow: none;
+}
+
+.button-ext:hover{
+    color: #2C3035;
+    transition: 0.4s;
+}
+
+.number-likes{
+    margin-left: 7px;
+    padding-top: 1px;
+    font-size: 30px;
+    color: #2C3035;
+    font-weight: bold;
+    text-shadow: none;
+    min-width: 20px;
+}
+
+.like-buttons{
+    width: auto;
+    align-content: center;
+    justify-content: center;
+    background-color: transparent;
+    min-width: 700px;
+    max-width: 800px;
+    text-align: center;
+    height: max-content;
+    margin-bottom: 10px;
+    margin-top: 40px;
+
+}
+
+.button-left{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.button-right{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.button-active{
+    font-size: 40px;
+    padding: 10px 30px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#active{
+    background-color: #EEF2F1;
+    border: 1px solid #EEF2F1;
+    color: #2C3035;
+    cursor: auto;
+}
+
+.button-sleep{
+    font-size: 40px;
+    padding:10px 30px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#sleep{
+    background-color: transparent;
+    border: 1px solid #EEF2F1;
+    color: #EEF2F1;
+}
+
+#sleep:hover{
+    background-color: #EEF2F1;
+    border: 1px solid #EEF2F1;
+    color: #2C3035;
+    transition: 0.5s;
+}
+
+
+@media (max-width: 768px) {
+    body{
+        display: grid;
+    }
+
+    .ordemProfile{
+        display: block;
+        min-width: 300px;
+        width: auto;
+    }
+
+    .ordenaMain{
+        display: grid;
+        min-width: 300px;
+        width: auto;
+    }
+
+    .card-ranking{
+        min-width: 300px;
+        width: auto;
+        display: block;
+    }
+
+    .card-ranking-gold{
+        min-width: 300px;
+        width: auto;
+        display: block;
+    }
+
+    .card-ranking-silver{
+        min-width: 300px;
+        width: auto;
+        display: block;
+    }
+
+    .card-ranking-bronze{
+        min-width: 300px;
+        width: auto;
+        display: block;
+    }
+
+    .like-buttons{
+        min-width: 300px;
+        width: auto;
+    }
+
+    .ranking-text{
+        width: auto;
+    }
+
+    main{
+        min-width: 300px;
+    }
+
+    .content{
+        text-align: left;
+    }
+}
+
+@media (max-width: 450px) {
+    body{
+        display: grid;
+    }
+
+    .ordemProfile{
+        display: block;
+        min-width: 300px;
+        width: auto;
+    }
+
+    .ordenaMain{
+        display: grid;
+        min-width: 300px;
+        width: auto;
+    }
+
+    .card-ranking{
+        min-width: 300px;
+        width: auto;
+        display: block;
+    }
+
+    .card-ranking-gold{
+        min-width: 300px;
+        width: auto;
+        display: block;
+    }
+
+    .card-ranking-silver{
+        min-width: 300px;
+        width: auto;
+        display: block;
+    }
+
+    .card-ranking-bronze{
+        min-width: 300px;
+        width: auto;
+        display: block;
+    }
+
+    .like-buttons{
+        min-width: 300px;
+        width: auto;
+    }
+
+    .ranking-text{
+        width: auto;
+    }
+
+    .content{
+        text-align: left;
+    }
+
+    main{
+        min-width: 300px;
+    }
+
+
+}

@@ -1,73 +1,50 @@
-const usuarioDadosLogin = {
-    "$nome" : null,
-    "$ultimoNome"  : null,
-    "$email"     : null,
-    "$senha"  : null,
-    "$numeroCartao" : null,
 
-    validEmail: function validaEmail(email) {
-        var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
-    },
-
-    validPasswd: function validaSenha(senha) {
-        return (passwd.length > 7)
-    },
-
-    signUp: function signUp(form) {
-        this.$nome = form["nome"].value;
-        this.$ultimoNome = form["ultimoNome"].value;
-        this.$email = form["email"].value;
-        this.$senha = form["senha"].value;
-        this.$numeroCartao = form["numeroCartao"].value;
+function submitRegister() {
+    var nome = document.getElementById("register-fName").value
+    var ultimoNome = document.getElementById("register-lName").value
+    var email = document.getElementById("register-email").value
+    var senha = document.getElementById("register-psw").value
+    var numeroCartao = document.getElementById("register-card").value
 
 
-        if (!this.$nome || !this.$ultimoNome) {
-            alert("Nome invalido!\nTente novamente.");
-            throw new Error("Nome invalido!\nTente novamente.");
-        }
-        else if (!this.validaEmail(this.$email)) {
-            alert("Email invalido!\nTente novamente.");
-            throw new Error("Email invalido!\nTente novamente.");
-        }
+    var data = {
+        email: email,
+        nome: nome,
+        ultimoNome: ultimoNome,
+        numeroCartao: numeroCartao,
+        senha: senha,
 
-        else if (!this.validaSenha(this.$senha)) {
-            alert("Senha invalida!\nTamanho minimo de 8 caracteres.\nTente novamente.");
-            throw new Error("Senha invalida!\nTamanho minimo de 8 caracteres.\nTente novamente.");
-        }
-    },
+    }
 
-    signIn: function signIn(form) {
-        this.$email = form["email"].value;
-        this.$senha = form["senha"].value;
 
-        if (!this.validaEmail(this.$email)) {
-            alert("Email invalido!\nTente novamente.");
-            throw new Error("Email invalido!\nTente novamente.");
-        }
+    fetch('https://ajude-back.herokuapp.com/ajude/usuarios/adiciona', {
+            method: 'POST',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json; charset=utf-8'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(function (response) {
+            var msg = ""
+            if (!response.ok) {
+                if (response.status == 409) {
+                    msg = "Usuário já existe"
+                } else if (response.status == 500) {
+                    msg = "Erro do servidor"
+                } else {
+                    msg = "Senha não contém 8 dígitos"
+                }
 
-        else if (!this.validaSenha(this.$senha)) {
-            alert("Senha invalida!\nTente novamente.");
-            throw new Error("Senha invalida!\nTente novamente.");
-        }
-    },
-
-    signUpToJson: function signUpToJson() {
-        return  {
-            email:        this.$email,
-            nome:         this.$nome,
-            ultimoNome:   this.$ultimoNome,
-            numeroCartao: this.$numeroCartao,
-            senha:        this.$senha
-        }
-    },
-
-    signInToJson: function signInToJson() {
-        return  {
-            email:     this.$email,
-            senha:     this.$senha
-        }
-    },
-};
-
-export default usuarioDadosLogin;
+                throw new Error("Não foi possível completar o cadastro: " + msg)
+            }
+            return response.text()
+        })
+        .then(function (data) {
+            alert("Usuário cadastrado com sucesso")
+            window.location.href = "index.html"
+        })
+        .catch(function (error) {
+            alert(error.message);
+        });
+}

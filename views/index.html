@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html>
+
+<head lang="pt-br">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AJuDE</title>
+
+    <link rel="stylesheet" type="text/css" href="../styles/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/0049b2d0c0.js"></script>
+
+    <script src="../js/login.js"></script>
+    <script src="../js/usuario.js"></script>
+    <script src="../js/pesquisa.js"></script>
+
+</head>
+
+<body>
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            <span class="tower1"></span>
+            <span class="tower2"></span>
+            <span class="tower3"></span>
+            <span class="letter">AJuDE</span>
+        </a>
+
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+
+        <ul id="menu" class="menu">
+            <li></li>
+            <li><button class="btn-quaternary" onclick="window.location.href='ranking.html'">Ordenaçao</button></li>
+            <li><button class="btn-quaternary" onclick="window.location.href='index.html'">Home</button></li>
+            <li id="btn-login" class=""><button class="btn-quaternary"
+                    onclick="document.getElementById('id01').style.display='block'" data-toggle="pill">Login</button>
+            </li>
+            <li id="btn-register" class=""><button class="btn-primary"
+                    onclick="document.getElementById('id02').style.display='block'" data-toggle="pill">Cadastro</button>
+            </li>
+            <li id="btn-logout"><button class="btn-primary" onclick="logout();" data-toggle="pill">Sair</button>
+            </li>
+            <li id="btn-cadastroCampanha"><button class="btn-primary" onclick="document.getElementById('id03').style.display='block';" data-toggle="pill">Cadastrar ampanha</button>
+            </li>
+
+        </ul>
+
+    </header>
+
+    <main>
+        <div>
+            <div class="form-div">
+                <form id="search-form">
+                    <h4>Pesquisar campanhas do nosso sistema...</h4>
+                    <div class="search-box">
+                        <input onkeyup="submitSearch();" name="q" maxlength="200"
+                            placeholder="ex. Vaquinha" autocomplete="off" id="search" value="" onkeypress="doNothing()" autofocus>
+                        <i class="fas fa-search"></i>
+                    </div>
+                </form>
+            </div>
+
+            <div>
+                <div id="campanhas" class=""></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="center-footer">
+        <div class="sub-footer">
+            <div class="text-footer">
+                <span class="">
+                    Copyright © 2019 AJuDE, developed by Klaywert D. and Mathias A. at Federal University of Campina Grande. All rights reserved.
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!--   Modal Login  -->
+    <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-card-4" style="max-width:600px">
+
+            <div class="w3-center"><br>
+                <span onclick="document.getElementById('id01').style.display='none'"
+                    class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+            </div>
+
+            <form class="w3-container" id="login" name="login" onsubmit="submitLogin(); return false;">
+                <h4>Entre e contribua!</h4>
+                <hr>
+                <div class="w3-section">
+                    <input class="w3-input w3-border w3-margin-bottom" id="login-email" type="email"
+                        placeholder="E-mail" name="email" required>
+                    <input class="w3-input w3-border" type="password" id="login-psw" placeholder="Senha" name="psw"
+                        required>
+                    <button class="w3-button-sub" type="submit">Login</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!--   Modal Register -->
+    <div id="id02" class="w3-modal">
+        <div class="w3-modal-content w3-card-4" style="max-width:600px">
+
+            <div class="w3-center"><br>
+                <span onclick="document.getElementById('id02').style.display='none'"
+                    class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+            </div>
+
+            <form class="w3-container" id="register" name="register" onsubmit="submitRegister(); return false;">
+                <h4>Cadastro</h4>
+                <div class="w3-section">
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Primeiro Nome"
+                        id="register-fName" required>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Último Nome"
+                        id="register-lName" required>
+                    <input class="w3-input w3-border w3-margin-bottom" type="email" placeholder="E-mail"
+                        id="register-email" required>
+                    <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="Numero do cartao"
+                        id="register-card" required>
+                    <input class="w3-input w3-border" type="password" placeholder="Senha" id="register-psw" required>
+                    <button class="w3-button-sub" type="submit">Cadastrar-se</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+    <!--   Modal Register Campanha -->
+    <div id="id03" class="w3-modal">
+        <div class="w3-modal-content w3-card-4" style="max-width:600px">
+
+            <div class="w3-center"><br>
+                <span onclick="document.getElementById('id03').style.display='none'"
+                    class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+            </div>
+
+            <form class="w3-container" id="register" name="register" onsubmit="submitCampanha(); return false;">
+                <h4>Cadastro de campanha</h4>
+                <div class="w3-section">
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Nome"
+                        id="register-Cnome" required>
+                    <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Descricao"
+                        id="register-Cdescricao" required>
+                    <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="Meta"
+                        id="register-Cmeta" required>
+                    <input class="w3-input w3-border w3-margin-bottom" type="number" placeholder="DeadLine"
+                        id="register-Cdeadline" required>
+                    <input class="w3-input w3-border" type="text" placeholder="Nome curto"
+                        id ="register-Cnomecurto" required>
+                    <button class="w3-button-sub" type="submit">Cadastrar</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        function hideButtons() {
+            var login = document.getElementById("btn-login")
+            var register = document.getElementById("btn-register")
+            var logout = document.getElementById("btn-logout")
+            var cadastroCampanha = document.getElementById("btn-cadastroCampanha")
+            // Logado
+            if (localStorage.getItem("token") != null) {
+                login.style.display = "none"
+                register.style.display = "none"
+                logout.style.display = "block"
+                cadastroCampanha.style.display = "block"
+            } else {
+                login.style.display = "block"
+                register.style.display = "block"
+                logout.style.display = "none"
+                cadastroCampanha.style.display = "none"
+            }
+        }
+        hideButtons();
+    </script>
+
+</body>
+
+</html>

@@ -1,101 +1,182 @@
-//Opcao de ordenacao por numero de likes
-const $likeNumberOption = document.getElementById("rankByLikeNumb")
 
-//Opcao de ordenacao por meta
-const $metaNumberOption = document.getElementById("rankByMetaNumb")
-
-//Opcao de ordenacao por data
-const $dataNumberOption = document.getElementById("rankByDataNumb")
-
-//Faz a chamada para ordenar por numero de likes.
-$likeNumberOption.onclick = () => {
-    $likeNumberOption.className = "opcaoAtivada"
-    $metaNumberOption.className = ""
-    $dataNumberOption.className = ""
-    rankingByControler("Like")
+window.onload = function loadOrdenacao() {
+    metaOrdem();
 }
 
-//Faz a chamada para ordenar por meta.
-$metaNumberOption.onclick = () => {
-    $metaNumberOption.className = "opcaoAtivada"
-    $likeNumberOption.className = ""
-    $dataNumberOption.className = ""
-    rankingByControler("Meta")
+function likesOrdem(){
+    fetch(('https://ajude-back.herokuapp.com/ajude/campanhas/buscaTotal'), {
+            method: 'GET',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json; charset=utf-8',
+                'Authorization': `Bearer ${localStorage.token}`
+            },
+            body: "likes",
+        })
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("Não foi possível ordenar")
+            }
+            return response.json()
+        })
+        .then(function (data) {
+            renderOrdemLike(data);
+        })
+        .catch(function (error) {
+            alert(error.message);
+        });
 }
 
-//Faz a chamada para ordenar por data.
-$dataNumberOption.onclick = () => {
-    $dataNumberOption.className = "opcaoAtivada"
-    $likeNumberOption.className = ""
-    $metaNumberOption.className = ""
-    rankingByControler("Data")
+function renderOrdemLike(data){
+    var title = "Ordenando campanhas por likes...";
+    var responseLike = data;
+    var listLike = '';
+    var buttonLikes = '';
+
+    var button = '<div class="like-buttons">' +
+    '<span class="button-left"><a href="#" class="button-active" id="sleep" onclick="return metaOrdem()"><i class="fas fa-heart"></i></a></span>' +
+    '<span class="button-right"><a href="#" class="button-sleep" id="sleep" onclick="return dataOrdem()"><i class="fas fa-comment"></i></a></span>' +
+'</div>';
+    document.getElementById('ordemId').innerHTML = '';
+
+    data.status != 404 ? responseMeta.forEach(function (arrayLike){
+
+        if(arrayLike.curtidaUser){
+            buttonMeta = 'button-liked';
+        } else{
+            buttonMeta = 'button-unlike';
+        }
+
+        listLike+= ('<div class="card-ranking">' +
+                    '<div class="ranking-text">' + ".&nbsp;&nbsp;&nbsp;" + arrayLike.campanha +'</div>' +
+                    "<div class='card-like'><a class='button-ext' href='subjectProfile.html?id=" +arrayLike.id + "'><i class='fas fa-pager'></i></a><a class=" + buttonMeta + " href='#' onclick='return addLike("+ arrayLike.id+")'><i class='fas fa-heart'></i></a><span class='number-likes'>" + arrayLike.quantidadeLikes + "</div>" +
+                    '</div>');
+        }
+
+    }): null;
+
+    document.getElementById('ordemId').innerHTML = button + "<div class='ordem-name'>" + title + "</div>" + listLike;
 }
 
-//Controla a ordenacao do ranking de acordo com o parametro option passado como parametro, limpando o container de ranking
-//e redirecionando os dados necessarios para a criacao de cada campanha no HTML
-async function rankingByControler(option) {
 
-    const campanhasList = await getOrderBy(option)
-
-    killAllChildren(".ranking-container")
-
-    for (let index = 0; index < campanhasList.length; index++) {
-        const campanha = campanhasList[index];
-        console.log(campanhasList[index])
-        campanhaOrder(campanha["nome"], campanha["meta"], campanha["data"]);
-    }
+function dataOrdem(){
+    fetch(('https://ajude-back.herokuapp.com/ajude/campanhas/buscaTotal'), {
+            method: 'GET',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json; charset=utf-8',
+                'Authorization': `Bearer ${localStorage.token}`
+            },
+            body: "data",
+        })
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("Não foi possível ordenar")
+            }
+            return response.json()
+        })
+        .then(function (data) {
+            renderOrdemData(data);
+        })
+        .catch(function (error) {
+            alert(error.message);
+        });
 }
 
-//Realiza a ligacao entre a aplicacao front e back, e faz a requisicao do ranking de perfis de campanhas ordenadas de acordo com opcao escolhida
-async function getOrderBy(option) {
-    const userToken = await JSON.parse(localStorage.getItem("userToken"))["token"]
-    const requestUrl = "https://http://ajude-back.herokuapp.com/ajude/campanhas/buscaTotal";
+function renderOrdemData(data){
+    var title = "Ordenaçao de campanhas pela data";
+    var responseData = data;
+    var listLike = '';
 
-    let fetcher = await fetch(requestUrl, {
+    var button = '<div class="like-buttons">' +
+    '<span class="button-left"><a href="#" class="button-active" id="sleep" onclick="return metaOrdem()"><i class="fas fa-heart"></i></a></span>' +
+    '<span class="button-left"><a href="#" class="button-active" id="sleep" onclick="return likesOrdem()"><i class="fas fa-heart"></i></a></span>' +
+'</div>';
+    document.getElementById('ordemId').innerHTML = '';
+
+    data.status != 404 ? responseData.forEach(function (arrayLike){
+
+    listLike+= ('<div class="card-ranking">' +
+                '<div class="ranking-text">' + ".&nbsp;&nbsp;&nbsp;" + arrayLike.campanha +'</div>' +
+                "<div class='card-like'><a class='button-ext' href='subjectProfile.html?id=" +arrayLike.id + "'><i class='fas fa-pager'></i></a><a class='button-liked'><i class='fas fa-comment'></i></a><span class='number-likes'>" + arrayLike.dataDeadline + "</span></div>" +
+                '</div>');
+        }
+
+    }): null;
+
+    document.getElementById('ordemId').innerHTML = button + "<div class='ordem-name'>" + title + "</div>" + listLike;
+}
+
+function metaOrdem(){
+    fetch(('https://ajude-back.herokuapp.com/ajude/campanhas/buscaTotal'), {
+            method: 'GET',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json; charset=utf-8',
+                'Authorization': `Bearer ${localStorage.token}`
+            },
+            body: "meta",
+        })
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("Não foi possível ordenar")
+            }
+            return response.json()
+        })
+        .then(function (data) {
+            renderOrdemMeta(data);
+        })
+        .catch(function (error) {
+            alert(error.message);
+        });
+}
+
+function renderOrdemMeta(data){
+    var title = "Ordenaçao de campanhas pela meta";
+    var responseMeta = data;
+    var listMeta = '';
+
+    var button = '<div class="like-buttons">' +
+    '<span class="button-left"><a href="#" class="button-active" id="sleep" onclick="return likesOrdem()"><i class="fas fa-heart"></i></a></span>' +
+    '<span class="button-left"><a href="#" class="button-active" id="sleep" onclick="return dataOrdem()"><i class="fas fa-heart"></i></a></span>' +
+'</div>';
+    document.getElementById('ordemId').innerHTML = '';
+
+    data.status != 404 ? responseMeta.forEach(function (arrayLike){
+
+    listLike+= ('<div class="card-ranking">' +
+                '<div class="ranking-text">' + ".&nbsp;&nbsp;&nbsp;" + arrayLike.campanha +'</div>' +
+                "<div class='card-like'><a class='button-ext' href='subjectProfile.html?id=" +arrayLike.id + "'><i class='fas fa-pager'></i></a><a class='button-liked'><i class='fas fa-comment'></i></a><span class='number-likes'>" + arrayLike.meta + "</span></div>" +
+                '</div>');
+        }
+
+    }): null;
+
+    document.getElementById('ordemId').innerHTML = button + "<div class='ordem-name'>" + title + "</div>" + listLike;
+}
+
+
+function addLike(id) {
+    fetch('https://ajude-back.herokuapp.com/ajude/campanhas/' + id + '/addLike', {
+        method: 'PUT',
         headers: {
+            'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json; charset=utf-8',
-            'authorization': 'Bearer ' + userToken
+            'Authorization': `Bearer ${localStorage.token}`
         },
-
-        body: option
     })
-
-    if (!fetcher.ok) {
-        tokenExpirado(fetcher)
-        throw new Error(fetcher.response);
-    }
-    console.log(fetcher)
-    let orderJson = await fetcher.json();
-    return orderJson;
-}
-
-const loggedInCheck = function () {
-    if (localStorage.getItem("userToken") == null) {
-        alert("Faça login para continuar")
-
-        document.getElementById("signInMod").style.display = "flex";
-        return true;
-    }
-}
-
-//Cria a estrutura de HTML de cada campanha presente na ordenacao
-function campanhaOrder(campanhaNome, meta, data) {
-
-    const campanhaDiv = document.createElement("div");
-    campanhaDiv.className = "campanhaDiv";
-
-    const campanhaInfoList = document.createElement("ul");
-    campanhaInfoList.className = "campanhaInfoList";
-
-    const campanhaNome = document.createElement("li")
-    campanhaNome.className = "nomeCampanha"
-    campanhaNome.innerText = "-> " + campanhaNome
-
-    const campanhaQtdsInfo = document.createElement("li")
-    campanhaQtdsInfo.className = "campanhaQtdsInfo"
-    campanhaQtdsInfo.innerText = "Meta: " + meta + " - Termino: " + data
-
-    campanhaDiv.append(campanhaNome, campanhaQtdsInfo)
-
-    document.querySelector(".ranking-container").appendChild(campanhaDiv);
+        .then(function (response) {
+            var msg = ""
+            if (!response.ok) {
+                msg = "Algo deu errado"
+                throw new Error("Erro!")
+            }
+            return response.text()
+        })
+        .then(function (data) {
+            metaOrdem();
+        })
+        .catch(function (error) {
+            alert(error.message);
+        })
 }
