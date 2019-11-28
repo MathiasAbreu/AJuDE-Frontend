@@ -1,4 +1,6 @@
-
+/*
+Adiciona um like numa campanha
+*/
 function addLike() {
     var idSubject = location.search.split("?");
     var broke = idSubject[1].split("=");

@@ -1,3 +1,6 @@
+ /*
+ Prepara os parametros do request da campanha
+ */
 window.onload = function subjectDecode() {
     var id = location.search.split("?");
     var broke = id[1].split("=");
@@ -5,7 +8,9 @@ window.onload = function subjectDecode() {
     subjectProfile(broke[1]);
 
 }
-
+/*
+Realiza o request de uma campanha
+*/
 function subjectProfile(id) {
     fetch(('https://ajude-back.herokuapp.com/ajude/campanhas/buscaSubstring'), {
         method: 'GET',

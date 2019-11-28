@@ -1,4 +1,6 @@
-
+/*
+ Cadastra um usuario no sistema
+*/
 function submitRegister() {
     var nome = document.getElementById("register-fName").value
     var ultimoNome = document.getElementById("register-lName").value

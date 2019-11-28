@@ -1,4 +1,6 @@
-
+/*
+Submete os dados para o backend, realizando o login
+*/
 var tokenUser;
 function submitLogin() {
     var email = document.getElementById("login-email").value
@@ -40,12 +42,19 @@ function submitLogin() {
         });
 }
 
+/*
+Desconecta o usuario atual
+*/
+
 function logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     window.location.href = "";
 }
 
+/*
+Cria uma campanha e envia a mesma pro backend para cadastra-la
+*/
 function submitCampanha() {
     var nome = document.getElementById("register-Cnome").value
     var descricao = document.getElementById("register-Cdescricao").value

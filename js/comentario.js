@@ -1,10 +1,14 @@
-
+/*
+Adiciona um comentario numa campanha
+*/
 function addComment() {
     var inputComment = document.querySelector("#comment");
     submitComment(inputComment);
 }
 
-
+/*
+Registra um novo comentario e manda pro backend
+*/
 function submitComment(inputComment) {
     var id = location.search.split("?");
     var broke = id[1].split("=");
@@ -38,12 +42,17 @@ function submitComment(inputComment) {
         })
 }
 
+/*
+Adiciona resposta a um comentario
+*/
 function addAnswer(id) {
     var inputAnswer = document.querySelector("#answer" + id);
     submitAnswer(inputAnswer, id);
 }
 
-
+/*
+Envia a resposta de um comentario pro backend
+*/
 function submitAnswer(inputAnswer, id) {
     var idSubject = location.search.split("?");
     var broke = idSubject[1].split("=");
@@ -78,7 +87,9 @@ function submitAnswer(inputAnswer, id) {
         })
 }
 
-
+/*
+Apaga um comentario
+*/
 function removeComment(id) {
     var idSubject = location.search.split("?");
     var broke = idSubject[1].split("=");
@@ -111,7 +122,9 @@ function removeComment(id) {
 
 }
 
-
+/*
+Submete resposta com enter
+*/
 function answerEnter(e, idAnswer) {
     if (e.keyCode == 13) {
         addAnswer(idAnswer);
@@ -119,7 +132,9 @@ function answerEnter(e, idAnswer) {
     }
 };
 
-
+/*
+Submete comentario com enter
+*/
 function commentEnter(e) {
     if (e.keyCode == 13) {
         addComment();

@@ -1,4 +1,6 @@
-
+/*
+ Envia os dados da pesquisa realizada pela usuario
+*/
 function submitSearch() {
 
     var typingTimer;
@@ -16,7 +18,9 @@ function submitSearch() {
 
 }
 
-
+/*
+Formata as campanhas recebidas no JSON
+*/
 function formatarCampanhas(listaCampanhas) {
     var repos = listaCampanhas;
     document.getElementById("campanhas").innerHTML = "";
@@ -44,7 +48,9 @@ function formatarCampanhas(listaCampanhas) {
 
 }
 
-
+/*
+Faz a requisicao das campanhas pro backend
+*/
 function doneTyping() {
     var search = document.getElementById("search")
     if (search != '') {
@@ -85,11 +91,16 @@ function doneTyping() {
     }
 }
 
+/*
+Chama a funcao que formata o perfil das campanhas
+*/
 function perfilCampanha(idCampanha) {
     formatarPerfil(idCampanha);
 }
 
-
+/*
+Faz request pro backend realizando a pesquisa
+*/
 function formatarPerfil(idCampanha) {
     fetch(('https://ajude-back.herokuapp.com/ajude/campanhas/buscaSubstring'), {
             method: 'GET',

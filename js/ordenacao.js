@@ -1,8 +1,13 @@
-
+/*
+Ordenacao padrao por meta
+*/
 window.onload = function loadOrdenacao() {
     metaOrdem();
 }
 
+/*
+Faz request pro backend pra ordenar por like
+*/
 function likesOrdem(){
     fetch(('https://ajude-back.herokuapp.com/ajude/campanhas/buscaTotal'), {
             method: 'GET',
@@ -27,6 +32,9 @@ function likesOrdem(){
         });
 }
 
+/*
+Ordena por likes
+*/
 function renderOrdemLike(data){
     var title = "Ordenando campanhas por likes...";
     var responseLike = data;
@@ -58,7 +66,9 @@ function renderOrdemLike(data){
     document.getElementById('ordemId').innerHTML = button + "<div class='ordem-name'>" + title + "</div>" + listLike;
 }
 
-
+/*
+Faz request pro backend pra ordenar por data
+*/
 function dataOrdem(){
     fetch(('https://ajude-back.herokuapp.com/ajude/campanhas/buscaTotal'), {
             method: 'GET',
@@ -83,6 +93,9 @@ function dataOrdem(){
         });
 }
 
+/*
+Ordena por data
+*/
 function renderOrdemData(data){
     var title = "Ordenaçao de campanhas pela data";
     var responseData = data;
@@ -107,6 +120,9 @@ function renderOrdemData(data){
     document.getElementById('ordemId').innerHTML = button + "<div class='ordem-name'>" + title + "</div>" + listLike;
 }
 
+/*
+Faz request pro backend pra ordenar por meta
+*/
 function metaOrdem(){
     fetch(('https://ajude-back.herokuapp.com/ajude/campanhas/buscaTotal'), {
             method: 'GET',
@@ -131,6 +147,9 @@ function metaOrdem(){
         });
 }
 
+/*
+Ordena por meta
+*/
 function renderOrdemMeta(data){
     var title = "Ordenaçao de campanhas pela meta";
     var responseMeta = data;
@@ -155,7 +174,9 @@ function renderOrdemMeta(data){
     document.getElementById('ordemId').innerHTML = button + "<div class='ordem-name'>" + title + "</div>" + listLike;
 }
 
-
+/*
+Adiciona like
+*/
 function addLike(id) {
     fetch('https://ajude-back.herokuapp.com/ajude/campanhas/' + id + '/addLike', {
         method: 'PUT',
