@@ -65,7 +65,7 @@ function doneTyping() {
 
                 },
 
-                body: encodeValue,
+                body: [encodeValue, "Ativa" ],
             })
             .then(function (response) {
                 if (!response.ok) {
@@ -109,7 +109,7 @@ function formatarPerfil(idCampanha) {
                 'Content-Type': 'application/json; charset=utf-8'
             },
 
-            body: idCampanha,
+            body: [encodeURIComponent(idCampanha), "Ativa"],
         })
         .then(function (response) {
             if (!response.ok) {

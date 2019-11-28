@@ -12,10 +12,9 @@ window.onload = function subjectDecode() {
 Realiza o request de uma campanha
 */
 function subjectProfile(id) {
-    fetch(('https://ajude-back.herokuapp.com/ajude/campanhas/buscaSubstring'), {
+    fetch(('https://ajude-back.herokuapp.com/ajude/campanhas/buscaTotal'), {
         method: 'GET',
         headers: {
-            'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json; charset=utf-8',
             'Authorization': `Bearer ${localStorage.token}`
         },
