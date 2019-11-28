@@ -60,10 +60,6 @@ function submitCampanha() {
         dataDeadline: deadLine,
     }
 
-    headers: {
-                        "Authorization": "Bearer " + $('#tokenField').val()
-                     },
-
     fetch('https://ajude-back.herokuapp.com/ajude/campanhas/adiciona', {
             method: 'POST',
             headers: {
