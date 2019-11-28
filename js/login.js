@@ -114,13 +114,10 @@ function aparecerDisconnect() {
 
 function aparecerCadastraCampanha() {
   const cadastroCampanhaBt = document.createElement("li");
+  cadastroCampanhaBt.innerHTML = '<button class="header_bt" id="cadastroCampanhaBt">Cadastrar campanha</button>'
+  const modCadastroCampanha = document.getElementById("cadastroCampanhaMod");
+  cadastroCampanhaBt.onclick = () => modCadastroCampanha.style.display = "flex";
 
-  cadastroCampanhaBt.className = "header_bt"
-  loginBt.innerHTML = '<button class="header_bt" id="loginBt">Login</button>'
-
-  cadastroCampanhaBt.onclick = function () {
-
-  }
 }
 
 
