@@ -30,7 +30,7 @@ function submitLogin() {
             localStorage.setItem("token", data.token)
             localStorage.setItem("login", email)
 
-            window.location.href = "index.html"
+            window.location.href = ""
         })
         .catch(function (error) {
             alert(error.message);
@@ -40,7 +40,7 @@ function submitLogin() {
 function logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
-    window.location.href = "index.html";
+    window.location.href = "";
 }
 
 function submitCampanha() {
@@ -76,7 +76,7 @@ function submitCampanha() {
         .then(function (data) {
             alert("Campanha criada com sucesso com sucesso")
 
-            window.location.href = "index.html"
+            window.location.href = ""
         })
         .catch(function (error) {
             alert(error.message);

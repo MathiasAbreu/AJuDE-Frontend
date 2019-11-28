@@ -41,7 +41,7 @@ function submitRegister() {
         })
         .then(function (data) {
             alert("Usuário cadastrado com sucesso")
-            window.location.href = "index.html"
+            window.location.href = ""
         })
         .catch(function (error) {
             alert(error.message);

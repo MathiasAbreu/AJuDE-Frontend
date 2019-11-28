@@ -225,20 +225,6 @@ body {
     font-family: Georgia, cursive;
 }
 
-.tower1{
-    margin-top: 20px;
-    margin-left: 5px;
-    height: 10px;
-    width: 5px;
-    background-color: #EEF2F1;
-}
-.tower2{
-    margin-top: 12.5px;
-    margin-left: 5px;
-    height: 17.5px;
-    width: 5px;
-    background-color: #EEF2F1;
-}
 .tower3{
     margin-top: 5px;
     margin-left: 5px;

@@ -6,22 +6,7 @@
 html {
     font-family: Georgia, cursive;
 }
-.tower1{
-    margin-top: 200px;
-    margin-left: 50px;
-    height: 100px;
-    width: 50px;
-    background: #2C3035;
-    border-radius: 15px;
-}
-.tower2{
-    margin-top: 125px;
-    margin-left: 50px;
-    height: 175px;
-    width: 50px;
-    background: #2C3035;
-    border-radius: 15px;
-}
+
 .tower3{
     margin-top: 50px;
     margin-left: 50px;
