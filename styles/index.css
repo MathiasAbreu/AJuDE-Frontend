@@ -268,20 +268,6 @@ body {
     text-shadow: 3px 3px 2px #757C84;
 }
 
-.tower1{
-    margin-top: 20px;
-    margin-left: 5px;
-    height: 10px;
-    width: 5px;
-    background-color: #EEF2F1;
-}
-.tower2{
-    margin-top: 12.5px;
-    margin-left: 5px;
-    height: 17.5px;
-    width: 5px;
-    background-color: #EEF2F1;
-}
 .tower3{
     margin-top: 5px;
     margin-left: 5px;
@@ -488,7 +474,7 @@ main {
     letter-spacing: 2px;
 }
 
-.disciplinas {
+.campanhas {
     display: flex;
     align-content: center;
     justify-content: center;
