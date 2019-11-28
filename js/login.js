@@ -72,7 +72,7 @@ function submitCampanha() {
             return response.json()
         })
         .then(function (data) {
-            alert("Campanha criada com sucesso com sucesso")
+            alert("Campanha criada com sucesso!")
 
             window.location.href = ""
         })
