@@ -1,4 +1,5 @@
 
+var tokenUser;
 function submitLogin() {
     var email = document.getElementById("login-email").value
     var senha = document.getElementById("login-psw").value
@@ -25,6 +26,8 @@ function submitLogin() {
         })
         .then(function (data) {
             alert("Usuário logado com sucesso")
+
+            tokenUser = data.token;
 
             // Store
             localStorage.setItem("token", data.token)
@@ -57,11 +60,15 @@ function submitCampanha() {
         dataDeadline: deadLine,
     }
 
+    headers: {
+                        "Authorization": "Bearer " + $('#tokenField').val()
+                     },
 
     fetch('https://ajude-back.herokuapp.com/ajude/campanhas/adiciona', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json; charset=utf-8'
+                'Content-Type': 'application/json; charset=utf-8',
+                'Authorization': 'Bearer ' + tokenUser
             },
             body: JSON.stringify(data)
         })
