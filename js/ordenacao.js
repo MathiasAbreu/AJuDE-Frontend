@@ -47,8 +47,8 @@ function renderOrdemLike(data){
             buttonMeta = 'button-unlike';
         }
 
-        listLike+= ('<div class="card-ranking">' +
-                    '<div class="ranking-text">' + ".&nbsp;&nbsp;&nbsp;" + arrayLike.campanha +'</div>' +
+        listLike+= ('<div class="card-ordenacao">' +
+                    '<div class="ordenacao-text">' + ".&nbsp;&nbsp;&nbsp;" + arrayLike.campanha +'</div>' +
                     "<div class='card-like'><a class='button-ext' href='subjectProfile.html?id=" +arrayLike.id + "'><i class='fas fa-pager'></i></a><a class=" + buttonMeta + " href='#' onclick='return addLike("+ arrayLike.id+")'><i class='fas fa-heart'></i></a><span class='number-likes'>" + arrayLike.quantidadeLikes + "</div>" +
                     '</div>');
         }
@@ -96,8 +96,8 @@ function renderOrdemData(data){
 
     data.status != 404 ? responseData.forEach(function (arrayLike){
 
-    listLike+= ('<div class="card-ranking">' +
-                '<div class="ranking-text">' + ".&nbsp;&nbsp;&nbsp;" + arrayLike.campanha +'</div>' +
+    listLike+= ('<div class="card-ordenacao">' +
+                '<div class="ordenacao-text">' + ".&nbsp;&nbsp;&nbsp;" + arrayLike.campanha +'</div>' +
                 "<div class='card-like'><a class='button-ext' href='subjectProfile.html?id=" +arrayLike.id + "'><i class='fas fa-pager'></i></a><a class='button-liked'><i class='fas fa-comment'></i></a><span class='number-likes'>" + arrayLike.dataDeadline + "</span></div>" +
                 '</div>');
         }
@@ -144,8 +144,8 @@ function renderOrdemMeta(data){
 
     data.status != 404 ? responseMeta.forEach(function (arrayLike){
 
-    listLike+= ('<div class="card-ranking">' +
-                '<div class="ranking-text">' + ".&nbsp;&nbsp;&nbsp;" + arrayLike.campanha +'</div>' +
+    listLike+= ('<div class="card-ordenacao">' +
+                '<div class="ordenacao-text">' + ".&nbsp;&nbsp;&nbsp;" + arrayLike.campanha +'</div>' +
                 "<div class='card-like'><a class='button-ext' href='subjectProfile.html?id=" +arrayLike.id + "'><i class='fas fa-pager'></i></a><a class='button-liked'><i class='fas fa-comment'></i></a><span class='number-likes'>" + arrayLike.meta + "</span></div>" +
                 '</div>');
         }

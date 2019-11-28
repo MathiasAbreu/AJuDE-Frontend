@@ -18,7 +18,7 @@
     justify-content: center;
 }
 
-.card-ranking{
+.card-ordenacao{
     background: #EEF2F1;
     margin: 10px 0px;
     border-radius: 10px;
@@ -28,7 +28,7 @@
     justify-content: space-between;
 }
 
-.card-ranking-gold{
+.card-ordenacao-gold{
     background: #FFD700;
     margin: 10px 0px;
     border-radius: 10px;
@@ -38,7 +38,7 @@
     justify-content: space-between;
 }
 
-.card-ranking-silver{
+.card-ordenacao-silver{
     background: #C0C0C0;
     margin: 10px 0px;
     border-radius: 10px;
@@ -48,7 +48,7 @@
     justify-content: space-between;
 }
 
-.card-ranking-bronze{
+.card-ordenacao-bronze{
     background: #cd7f32;
     margin: 10px 0px;
     border-radius: 10px;
@@ -58,7 +58,7 @@
     justify-content: space-between;
 }
 
-.ranking-text{
+.ordenacao-text{
     margin: 15px;
     letter-spacing: 2px;
     font-size: 18px;
@@ -209,25 +209,25 @@
         width: auto;
     }
 
-    .card-ranking{
+    .card-ordenacao{
         min-width: 300px;
         width: auto;
         display: block;
     }
 
-    .card-ranking-gold{
+    .card-ordenacao-gold{
         min-width: 300px;
         width: auto;
         display: block;
     }
 
-    .card-ranking-silver{
+    .card-ordenacao-silver{
         min-width: 300px;
         width: auto;
         display: block;
     }
 
-    .card-ranking-bronze{
+    .card-ordenacao-bronze{
         min-width: 300px;
         width: auto;
         display: block;
@@ -238,7 +238,7 @@
         width: auto;
     }
 
-    .ranking-text{
+    .ordenacao-text{
         width: auto;
     }
 
@@ -268,25 +268,25 @@
         width: auto;
     }
 
-    .card-ranking{
+    .card-ordenacao{
         min-width: 300px;
         width: auto;
         display: block;
     }
 
-    .card-ranking-gold{
+    .card-ordenacao-gold{
         min-width: 300px;
         width: auto;
         display: block;
     }
 
-    .card-ranking-silver{
+    .card-ordenacao-silver{
         min-width: 300px;
         width: auto;
         display: block;
     }
 
-    .card-ranking-bronze{
+    .card-ordenacao-bronze{
         min-width: 300px;
         width: auto;
         display: block;
@@ -297,7 +297,7 @@
         width: auto;
     }
 
-    .ranking-text{
+    .ordenacao-text{
         width: auto;
     }
 
